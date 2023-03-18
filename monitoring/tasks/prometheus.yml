@@ -22,8 +22,14 @@
     group: '{{ item.group }}'
 
   loop:
-  - '{ path: /etc/prometheus, owner: root, group: root, mode: 755 }'
-  - '{ path: /var/lib/prometheus, owner: prometheus, group: prometheus, mode: 755 }'
+  - path: /etc/prometheus
+    owner: root
+    group: root
+    mode: 755
+  - path: /var/lib/prometheus
+    owner: prometheus
+    group: prometheus
+    mode: 755
 
 #- name: down prometheus
 #  ansible.builtin.get_url:
