@@ -50,10 +50,10 @@
     owner: prometheus
     group: prometheus
   loop:
-  - src: /tmp/{{ prometheus_package | split('.')[1] }}/consoles
+  - src: /tmp/{{ (prometheus_package | split('.'))[0] }}/consoles
     dest: /etc/prometheus/
 
-  - src: /tmp/{{ prometheus_package.split('.')[1] }}/console_libraries
+  - src: /tmp/{{ (prometheus_package|split('.'))[0] }}/console_libraries
     dest: /etc/prometheus/
 
 ...
