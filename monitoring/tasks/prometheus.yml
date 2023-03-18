@@ -1,0 +1,34 @@
+---
+
+- name: create prometheus user
+  ansible.builtin.user:
+    name: prometheus
+    group: prometheus
+    create_home: false
+    shell: /bin/false
+
+- name: Create required dirs
+  ansible.builtin.file:
+    path: '{{ item.path  }}'
+    state: directory
+    mode: '{{ item.mode }}'
+    owner: '{{ item.owner }}'
+    group: '{{ item.group }}'
+
+  loop:
+  - '{ path: /etc/prometheus, owner: root, group: root, mode: 755 }'
+  - '{ path: /var/lib/prometheus, owner: prometheus, group: prometheus, mode: 755 }'
+
+#- name: down prometheus
+#  ansible.builtin.get_url:
+#    url: '{{ prometheus_url }}/{{ prometheus_version  }}/{{ prometheus_package }}'
+#    dest: /tmp
+
+- name: uncompress prometheus
+  ansible.builtin.unarchive:
+    remote_src: true 
+    src: '{{ prometheus_url }}/{{ prometheus_version  }}/{{ prometheus_package }}'
+    dest: /tmp/
+
+   
+...

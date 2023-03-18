@@ -1,0 +1,7 @@
+---
+# tasks file for monitoring
+#
+- name: Install prometheus
+  include_tasks:
+    name: install_prometheus.yml
+    

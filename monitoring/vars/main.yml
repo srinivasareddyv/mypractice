@@ -1,0 +1,6 @@
+---
+# vars file for monitoring
+
+prometheus_url: https://github.com/prometheus/prometheus/releases/download
+prometheus_package: prometheus-2.37.6.linux-amd64.tar.gz
+prometheus_version: v2.37.6
