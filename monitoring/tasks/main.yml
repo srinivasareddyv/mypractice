@@ -2,5 +2,5 @@
 # tasks file for monitoring
 #
 - name: Install prometheus
-  include_tasks: install_prometheus.yml
+  include_tasks: prometheus.yml
     
