@@ -1,11 +1,17 @@
 ---
 
+- name: create prometheus group
+  ansible.builtin.group:
+    name: prometheus
+    state: present
+
 - name: create prometheus user
   ansible.builtin.user:
     name: prometheus
     group: prometheus
     create_home: false
     shell: /bin/false
+    state: present
 
 - name: Create required dirs
   ansible.builtin.file:
